@@ -35,6 +35,7 @@ def renewTransactionsData() -> None:
 # Membuat transaksi baru
 def newTransaction() -> None:
 
+    renewTransactionsData()
     cart, productsAvaliable = [], productsData.query('is_hidden == False')
 
     customIndex(productsAvaliable)
@@ -149,7 +150,7 @@ def updateStock(productId: str, productStock: int, stockOut: int = None, path: s
 
 
 # Memasukkan data transaksi
-def inputTransaction(orders: list | pd.DataFrame, total: int, bayar: int, kembalian: int, ordersFile: str = ordersPath, orderDetailsFile: str = ordersDetailsPath) -> None:
+def inputTransaction(orders: list or pd.DataFrame, total: int, bayar: int, kembalian: int, ordersFile: str = ordersPath, orderDetailsFile: str = ordersDetailsPath) -> None:
     loginData = getLogin()
 
     if isinstance(orders, list):

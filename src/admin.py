@@ -19,12 +19,12 @@ def getAdmins() -> pd.DataFrame:
 
 
 # Memberikan output data login
-def getLogin() -> pd.Series | pd.DataFrame:
+def getLogin() -> pd.Series or pd.DataFrame:
     return loginData.copy()
 
 
 # Melakukan login
-def doLogin(username: str, password: str,  datas: pd.Series | pd.DataFrame, isSuper: bool = False) -> bool:
+def doLogin(username: str, password: str,  datas: pd.Series or pd.DataFrame, isSuper: bool = False) -> bool:
 
     if isSuper:
         result = datas.loc[(datas['username'].apply(str) == username) & (

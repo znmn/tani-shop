@@ -29,7 +29,7 @@ def clearConsole() -> None:
 
 
 # Memodifikasi data pada dataframe
-def editData(data: pd.DataFrame, condition: int | pd.Series, column: tuple | list, value: tuple | list, path: str = None) -> pd.DataFrame:
+def editData(data: pd.DataFrame, condition: int or pd.Series, column: tuple or list, value: tuple or list, path: str = None) -> pd.DataFrame:
     data.loc[condition, column] = value
     if path is not None:
         data.to_csv(path, index=False)
@@ -37,7 +37,7 @@ def editData(data: pd.DataFrame, condition: int | pd.Series, column: tuple | lis
 
 
 # Menambahkan data ke dataframe
-def addData(data: pd.DataFrame, newData: dict | pd.DataFrame, path: str = None) -> pd.DataFrame:
+def addData(data: pd.DataFrame, newData: dict or pd.DataFrame, path: str = None) -> pd.DataFrame:
     data = pd.concat([data, pd.DataFrame(newData)], ignore_index=True)
     if path is not None:
         data.to_csv(path, index=False)
@@ -45,7 +45,7 @@ def addData(data: pd.DataFrame, newData: dict | pd.DataFrame, path: str = None) 
 
 
 # Menghapus data dari dataframe
-def deleteData(data: pd.DataFrame, condition: int | pd.Series, path: str = None) -> pd.DataFrame:
+def deleteData(data: pd.DataFrame, condition: int or pd.Series, path: str = None) -> pd.DataFrame:
     if isinstance(condition, int):
         data = data.drop(condition)
     else:
@@ -57,7 +57,7 @@ def deleteData(data: pd.DataFrame, condition: int | pd.Series, path: str = None)
 
 
 # Menghasilkan ID unik random
-def generateUniqueId(series: pd.Series | pd.DataFrame, length: int = 7, uppercase: bool = True, prefix: str = "") -> str:
+def generateUniqueId(series: pd.Series or pd.DataFrame, length: int = 7, uppercase: bool = True, prefix: str = "") -> str:
     generator = 'abcdefghijklmnopqrstuvwxyz0123456789'
     while (True):
         result = ''.join(random.choice(generator) for _ in range(length))
@@ -111,7 +111,7 @@ def checkCsvFiles(csvc: list) -> None:
 
 
 # Mengambil data dari csv dengan memberikan output DataFrame
-def getCsvData(path: str, sortColumn: str | list = None, asc: bool | list = [False, True]) -> pd.DataFrame:
+def getCsvData(path: str, sortColumn: str or list = None, asc: bool or list = [False, True]) -> pd.DataFrame:
     result = pd.read_csv(path)
 
     sortColumn = [result.columns[-1], result.columns[1]
