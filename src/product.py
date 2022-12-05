@@ -47,7 +47,9 @@ def modifyProduct(action: str) -> None:
         print('[X] Isi dengan X untuk Membatalkan')
 
     if action == 'edit' or action == 'tambah':
-        productId = generateUniqueId(productsData['product_id'], prefix='P-')
+        if action == 'tambah':
+            productId = generateUniqueId(
+                productsData['product_id'], prefix='P-')
 
         while True:
             productName = input(
