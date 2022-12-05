@@ -24,6 +24,7 @@ def renewTransactionsData() -> None:
 
     ordersData['total_harga'] = ordersData['harga_per_kg'] * \
         ordersData['quantity_kg']
+    ordersData['total_harga'] = ordersData['total_harga'].astype(int)
     ordersData['total'] = ordersData.groupby(
         ['order_id'])['total_harga'].transform('sum')
 
