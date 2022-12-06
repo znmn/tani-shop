@@ -6,7 +6,12 @@ from src.transaction import *
 def main():
     # Mengecek apakah file-file csv sudah ada
     checkCsvFiles([{adminsPath: ['admin_id', 'nama', 'username', 'password', 'is_super',
-                                 'no_hp', 'alamat', 'active']}, {productsPath: ['product_id', 'nama_produk', 'harga_per_kg', 'stok_kg', 'out_kg', 'is_hidden']}, {ordersPath: ['order_id', 'tanggal_order', 'admin_id', 'bayar', 'kembalian']}, {ordersDetailsPath: ['order_id', 'product_id', 'harga_per_kg', 'quantity_kg']}])
+                                 'no_hp', 'alamat', 'active']},
+                   {productsPath: ['product_id', 'nama_produk',
+                                   'harga_per_kg', 'stok_kg', 'out_kg', 'is_hidden']},
+                   {ordersPath: ['order_id', 'tanggal_order',
+                                 'admin_id', 'bayar', 'kembalian']},
+                   {ordersDetailsPath: ['order_id', 'product_id', 'harga_per_kg', 'quantity_kg']}])
 
     # Memperbarui data-data csv
     renewAdminsData(), renewProductsData(), renewTransactionsData()

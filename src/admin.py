@@ -55,7 +55,7 @@ def loginAdmin() -> tuple:
             username = input("[?] Masukkan Username: ")
             password = input("[?] Masukkan Password: ")
             superChoice = True if choice == '1' else False
-        elif choice == 'x':
+        elif choice.casefold() == 'x':
             exit()
         else:
             clearConsole()
