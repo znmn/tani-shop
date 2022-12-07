@@ -198,7 +198,7 @@ def modifyAdmin(mode: str, first: bool = False) -> None:
                 else:
                     print("[I] Nomor Admin Tidak Ditemukan! ")
             elif adminIndex.casefold() == 'x':
-                return
+                return (isLogin, isSuper, loginData)
 
         adminData = adminsData.loc[[adminIndex]]
         adminId = adminData['admin_id'].values[0]

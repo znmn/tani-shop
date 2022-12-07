@@ -222,16 +222,19 @@ def myTransactions(adminId: str = None) -> None:
     dfDataId = dfData['order_id'].values[0]
 
     dfDetail = ordersData.query(f'`order_id` == "{dfDataId}"')
+    dfIDAdmin = dfDetail['admin_id'].values[0]
     dfTotal = f'{dfDetail["total"].values[0]:,}'.replace(',', '.')
     dfBayar = f'{dfDetail["bayar"].values[0]:,}'.replace(',', '.')
     dfKembalian = f'{dfDetail["kembalian"].values[0]:,}'.replace(',', '.')
 
     customIndex(dfDetail)
     clearConsole()
+
     printCustom(f" Detail Transaksi [{dfDataId}] ")
     printTable(dfDetail, ['nama_produk', 'harga_per_kg',
                'quantity_kg', 'total_harga'])
-    print(f"[+] Total : Rp.{dfTotal} ")
+    print(f"[+] ID Admin yang Menangani : {dfIDAdmin} ")
+    print(f"[+] Total : Rp. {dfTotal} ")
     print(f"[+] Bayar: Rp. {dfBayar}")
     print(f"[+] Kembalian: Rp. {dfKembalian}")
 

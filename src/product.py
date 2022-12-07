@@ -104,9 +104,9 @@ def modifyProduct(action: str) -> None:
     elif action == 'stok':
         while True:
             productStock = input(
-                "[?] Stok: ") or (productData['stok_kg'].values[0] if action == "edit" else "")
-            if productStock.isnumeric():
-                productStock = int(productStock)
+                "[?] Stok: ") or productData['stok_kg'].values[0]
+            if isFloat(productStock):
+                productStock = float(productStock)
                 break
 
         productsData = editData(
