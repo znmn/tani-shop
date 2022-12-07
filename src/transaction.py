@@ -84,9 +84,9 @@ def newTransaction() -> None:
         cart.append({
             "id_produk": productId,
             "nama_produk": productName,
-            "harga_int": productPrice,
+            "harga": productPrice,
             "jumlah": qty,
-            "total_harga_int": totalPrice,
+            "total_harga": totalPrice,
             "stok_baru": productStock - qty,
             "out_baru": productOut + qty
         })
@@ -100,12 +100,7 @@ def newTransaction() -> None:
 
     customIndex(cart)
 
-    cart['total_harga'] = 'Rp. ' + \
-        cart['total_harga_int'].apply(lambda x: f"{x:,}".replace(',', '.'))
-    cart['harga'] = 'Rp. ' + \
-        cart['harga_int'].apply(lambda x: f"{x:,}".replace(',', '.'))
-
-    totalAllPrice = cart['total_harga_int'].sum()
+    totalAllPrice = cart['total_harga'].sum()
 
     clearConsole()
 
@@ -157,7 +152,7 @@ def inputTransaction(orders: list or pd.DataFrame, total: int, bayar: int, kemba
     if isinstance(orders, list):
         orders = pd.DataFrame(orders)
     orders.rename(columns={'id_produk': 'product_id',
-                  'harga_int': 'harga_per_kg', 'jumlah': 'quantity_kg'}, inplace=True)
+                  'harga': 'harga_per_kg', 'jumlah': 'quantity_kg'}, inplace=True)
 
     ordersData = pd.read_csv(ordersFile)
     ordersDetailsData = pd.read_csv(orderDetailsFile)
