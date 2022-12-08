@@ -128,8 +128,14 @@ def modifyAdmin(mode: str, first: bool = False) -> None:
         if name.casefold() == 'x' and not first:
             return
 
-        noHp = input("[?] No HP: ") or (
-            adminData['no_hp'].values[0] if mode == 'edit' else "-")
+        while True:
+            noHp = input("[?] No HP: ") or (
+                adminData['no_hp'].values[0] if mode == 'edit' else "-")
+            if checkPhone(noHp):
+                break
+            else:
+                print("[I] No HP Tidak Valid! ")
+                continue
         addr = input("[?] Alamat: ") or (
             adminData['alamat'].values[0] if mode == 'edit' else "-")
         while True:

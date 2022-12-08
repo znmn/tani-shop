@@ -32,6 +32,9 @@ def modifyProduct(action: str) -> None:
     if action == 'edit' or action == 'sembunyikan' or action == 'stok':
         printTable(productsData, ['nama_produk',
                    'harga_per_kg', 'stok_kg', 'is_hidden'])
+        totalStock = productsData['stok_kg'].sum()
+
+        printCustom(f"[=] Total Stok Seluruh Product: {totalStock}")
         printCustom("[X] Kembali   [NO] Pilih Nomor Produk")
         while True:
             productIdx = input("[?] Pilih Produk: ")

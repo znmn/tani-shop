@@ -20,7 +20,18 @@ def isFloat(string: str) -> bool:
         return False
 
 
+# check valid or not for phone number indonesia 08xxxx
+def checkPhone(phone_number: str) -> bool:
+    if not phone_number:
+        return False
+    if not (phone_number.startswith('08') or phone_number.startswith('+628')):
+        return False
+    return True
+
+
 # Membersihkan console untuk CMD atau Terminal
+
+
 def clearConsole() -> None:
     if os.name == 'nt':
         os.system('cls')
