@@ -131,7 +131,7 @@ def modifyAdmin(mode: str, first: bool = False) -> None:
         while True:
             noHp = input("[?] No HP: ") or (
                 adminData['no_hp'].values[0] if mode == 'edit' else "-")
-            if checkPhone(noHp):
+            if checkPhone(noHp) or noHp == '-':
                 break
             else:
                 print("[I] No HP Tidak Valid! ")
