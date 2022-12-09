@@ -103,7 +103,7 @@ def modifyAdmin(mode: str, first: bool = False) -> None:
     if mode == 'edit' or mode == 'tambah':
         if mode == 'edit':
             printTable(adminsData.query('active == True'), [
-                       'admin_id', 'username', 'nama', 'no_hp', 'alamat'])
+                       'admin_id', 'username', 'nama', 'no_hp', 'alamat', 'is_super'])
             printCustom('[X] Batal   [NO] Pilih Nomor Admin')
 
             while True:
@@ -191,7 +191,7 @@ def modifyAdmin(mode: str, first: bool = False) -> None:
 
     elif mode == 'hapus':
         printTable(adminsData.query('active == True'), [
-            'admin_id', 'username', 'nama', 'no_hp', 'alamat'])
+            'admin_id', 'username', 'nama', 'no_hp', 'alamat', 'is_super'])
 
         print('[X] Isi Dengan X Untuk Membatalkan')
 
